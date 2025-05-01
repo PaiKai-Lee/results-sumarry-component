@@ -9,6 +9,8 @@ This is a solution to the [Results summary component challenge on Frontend Mento
   - [Overview](#overview)
     - [The challenge](#the-challenge)
     - [Screenshot](#screenshot)
+      - [Desktop](#desktop)
+      - [Mobile](#mobile)
     - [Links](#links)
   - [My process](#my-process)
     - [Built with](#built-with)
@@ -25,12 +27,18 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+#### Desktop
+
+![desktop screenshot](./desktop-screenshot.png)
+
+#### Mobile
+
+![mobile screenshot](./mobile-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/PaiKai-Lee/results-sumarry-component)
+- Live Site URL: [Add live site URL here](https://results-sumarry-component.vercel.app/)
 
 ## My process
 
