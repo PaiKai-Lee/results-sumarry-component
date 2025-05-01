@@ -1,1 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+@theme {
+    /* Gradients color */
+    --color-light-slate-blue: hsl(252, 100%, 67%);
+    --color-light-royal-blue: hsl(241, 81%, 54%);
+
+    --color-circle-violet-blue: hsla(256, 72%, 46%, 1);
+    --color-circle-persian-blue: hsla(241, 72, 46%, 0);
+    /* Neutral */
+    --color-neutral-pale-blue: hsl(221, 100%, 96%);
+    --color-neutral-light-lavender: hsl(241, 100%, 89%);
+    --color-neutral-dark-gray-blue: hsl(224, 30%, 27%);
+}
+
+@layer base {
+    html {
+        font-size: 18px;
+        font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif ;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    #root {
+        height: 100%;
+    }
+}
