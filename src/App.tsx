@@ -1,39 +1,30 @@
-import { useEffect, useState  } from 'react';
+import { useMemo } from 'react';
 import Result, { SummaryItemType } from './components/Result';
+import { useMockData } from './hooks/useMockData';
 
 function App() {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [mockData, setMockData] = useState<SummaryItemType[]>([]);
-  const [resultScore, setResultScore] = useState<number>(0);
-  useEffect(() => {
-    setIsLoading(true);
-    fetch('data.json')
-      .then((res) => res.json())
-      .then((data) => setMockData(data))
-      .catch((err) => console.error(err))
-      .finally(() => setIsLoading(false));
-  }, []);
-
-  useEffect(() => {
-    const total = mockData.length;
-    let score = 0;
-    mockData.forEach((item) => {
-      score += item.score;
-    });
-    const resultScore = Math.round(score / total);
-    setResultScore(resultScore);
-  },[mockData]);
+  const { isLoading, mockData } = useMockData();
+  const resultScore = useMemo(() => {
+    if (!mockData || mockData.length === 0) return 0;
+    const dataLength = mockData.length;
+    const totalScore = mockData.reduce((acc, item) => acc + item.score, 0);
+    return Math.round(totalScore / dataLength);
+  }, [mockData]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <main className="container mx-auto h-full md:flex md:items-center md:justify-center">
+        <p>Loading...</p>
+      </main>
+    );
   }
 
   return (
     <>
       <main className="container mx-auto h-full md:flex md:items-center md:justify-center">
         <Result.Root>
-          <Result.ResultScore  resultScore={resultScore}/>
-          <Result.ResultSummary >
+          <Result.ResultScore resultScore={resultScore} />
+          <Result.ResultSummary>
             {mockData &&
               mockData.map((item: SummaryItemType, idx) => (
                 <Result.ResultSummaryItem key={idx} {...item} />
